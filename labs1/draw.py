@@ -168,25 +168,25 @@ def bresenham_line(image, x0, y0, x1, y1, color):
             derror -= 2 * (x1 - x0)
             y += y_update
 
+if __name__ == "__main" :
+    img_mat = np.zeros((4000, 4000, 3), dtype=np.uint8)
+    v_obj = parseV('model_1.obj')
+    f_obj = parseF('model_1.obj')
 
-img_mat = np.zeros((4000, 4000, 3), dtype=np.uint8)
-v_obj = parseV('model_1.obj')
-f_obj = parseF('model_1.obj')
-
-for i in f_obj:
-    v1 = v_obj[i[0] - 1]
-    v2 = v_obj[i[1] - 1]
-    v3 = v_obj[i[2] - 1]
-    bresenham_line(img_mat, round(v1[0] * 20000 +2000), round(v1[1] * 20000 + 2000), round(v2[0] * 20000 + 2000), round(v2[1] * 20000 + 2000), (255, 0, 0))
-    bresenham_line(img_mat, round(v1[0] * 20000 +2000), round(v1[1] * 20000 + 2000), round(v3[0]*20000 + 2000), round(v3[1]*20000 + 2000), (255, 0, 0))
-    bresenham_line(img_mat,  round(v2[0] * 20000 + 2000),  round(v2[1] * 20000 + 2000),  round(v3[0]*20000 + 2000), round(v3[1]*20000 + 2000), (255, 0, 0))
-
-
+    for i in f_obj:
+        v1 = v_obj[i[0] - 1]
+        v2 = v_obj[i[1] - 1]
+        v3 = v_obj[i[2] - 1]
+        bresenham_line(img_mat, round(v1[0] * 20000 +2000), round(v1[1] * 20000 + 2000), round(v2[0] * 20000 + 2000), round(v2[1] * 20000 + 2000), (255, 0, 0))
+        bresenham_line(img_mat, round(v1[0] * 20000 +2000), round(v1[1] * 20000 + 2000), round(v3[0]*20000 + 2000), round(v3[1]*20000 + 2000), (255, 0, 0))
+        bresenham_line(img_mat,  round(v2[0] * 20000 + 2000),  round(v2[1] * 20000 + 2000),  round(v3[0]*20000 + 2000), round(v3[1]*20000 + 2000), (255, 0, 0))
 
 
-#for i in v_obj:
-   # img_mat[round(5000 * i[1] + 500),round(5000 * i[0] + 500)] = 255
 
-img = Image.fromarray(img_mat, mode='RGB')  # 'L' - полутон, 'RGB' - цвет
-img = ImageOps.flip(img)
-img.save('imageTask6.png')
+
+    #for i in v_obj:
+       # img_mat[round(5000 * i[1] + 500),round(5000 * i[0] + 500)] = 255
+
+    img = Image.fromarray(img_mat, mode='RGB')  # 'L' - полутон, 'RGB' - цвет
+    img = ImageOps.flip(img)
+    img.save('imageTask6.png')
