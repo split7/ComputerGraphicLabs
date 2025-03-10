@@ -48,11 +48,11 @@ if __name__ == '__main__':
         n = normal(v1[0], v1[1], v1[2], v2[0], v2[1], v2[2], v3[0], v3[1], v3[2])
         scalar = np.dot(n, l) / np.linalg.norm(n)
         if scalar < 0:
-            draw_trig(img_mat, [-255 * scalar, 120, 200], z_buf,
+            draw_trig(img_mat, [-255 * scalar, -120 * scalar, -200 * scalar], z_buf,
                       (v1[0] * 20000 + 2156.66), (v1[1] * 20000 + 1204.04), (v1[2] * 20000),
                       (v2[0] * 20000 + 2156.66), (v2[1] * 20000 + 1204.04), (v2[2] * 20000),
                       (v3[0] * 20000 + 2156.66), (v3[1] * 20000 + 1204.04), (v3[2] * 20000))
 
     img = Image.fromarray(img_mat, mode='RGB')  # 'L' - полутон, 'RGB' - цвет
     img = ImageOps.flip(img)
-    img.save('image_triangle5.png')
+    img.save('image_triangle6.png')
