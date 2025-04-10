@@ -47,7 +47,7 @@ def rotate(coordinates: np.array, alpha: float, beta: float, gamma: float) -> np
                          [-np.sin(gamma), np.cos(gamma), 0],
                         [0, 0, 1]])
     r = x_rotate @ y_rotate @ z_rotate
-    new_coordinates = r @ coordinates + np.array([0.01, 0.001, 1])
+    new_coordinates = r @ coordinates + np.array([0.01, 0.001, 20])
     return new_coordinates
 
 
